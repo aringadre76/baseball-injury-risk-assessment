@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  baseball-science:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    image: baseball-science:latest
+    container_name: baseball-injury-risk
+    ports:
+      - "8888:8888"  # Jupyter notebooks
+      - "6006:6006"  # TensorBoard (if needed)
+    volumes:
+      - .:/workspace
+      - ./openbiomechanics:/workspace/openbiomechanics
+      - ./notebooks:/workspace/notebooks
+      - ./src:/workspace/src
+    environment:
+      - JUPYTER_TOKEN=baseball
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONPATH=/workspace/src
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  # CPU-only version for development
+  baseball-science-cpu:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    image: baseball-science:latest
+    container_name: baseball-injury-risk-cpu
+    ports:
+      - "8889:8888"  # Different port to avoid conflicts
+    volumes:
+      - .:/workspace
+      - ./openbiomechanics:/workspace/openbiomechanics
+      - ./notebooks:/workspace/notebooks
+      - ./src:/workspace/src
+    environment:
+      - JUPYTER_TOKEN=baseball
+      - CUDA_VISIBLE_DEVICES=""  # Disable GPU
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    profiles:
+      - cpu-only
