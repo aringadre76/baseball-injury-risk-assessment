@@ -23,46 +23,14 @@ This project analyzes high-fidelity motion capture data from elite baseball pitc
 
 ## Quick Start
 
-### Option 1: Docker Environment (Recommended)
+### Local Environment Setup (GPU Optimized)
 
-The easiest way to get started is using our pre-configured Docker environment based on Driveline Baseball Science Docker.
-
-#### Prerequisites
-- Docker and Docker Compose installed
-- NVIDIA Docker runtime (optional, for GPU acceleration)
-- At least 8GB RAM, 20GB disk space
-
-#### Setup
-1. **Clone this repository:**
-   ```bash
-   git clone <your-repo-url>
-   cd baseball-research
-   ```
-
-2. **Download the Driveline Baseball Science Dockerfile:**
-   ```bash
-   # Create docker directory
-   mkdir -p docker
-   
-   # Download Dockerfile from Driveline's repository
-   # Place it in ./docker/Dockerfile
-   ```
-
-3. **Run the setup script:**
-   ```bash
-   ./setup-docker.sh
-   ```
-
-4. **Access Jupyter notebooks:**
-   - GPU version: http://localhost:8888
-   - CPU version: http://localhost:8889
-   - Password: `baseball`
-
-### Option 2: Local Environment
+This project is optimized for local development with NVIDIA GPU support for accelerated machine learning training.
 
 #### Prerequisites
 - Python 3.8+
 - Git
+- NVIDIA GPU with CUDA support (recommended)
 - Access to OpenBiomechanics repository
 
 #### Installation
@@ -79,8 +47,12 @@ The easiest way to get started is using our pre-configured Docker environment ba
    git submodule update --init --recursive
    ```
 
-3. **Install dependencies:**
+3. **Install dependencies with GPU support:**
    ```bash
+   # Install PyTorch with CUDA support first
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   
+   # Install remaining dependencies
    pip install -r requirements.txt
    ```
 
@@ -95,11 +67,8 @@ The easiest way to get started is using our pre-configured Docker environment ba
 ```
 baseball-research/
 ├── openbiomechanics/          # Data submodule (git submodule)
-├── docker/                    # Docker environment setup
 ├── injury_risk_assessment_plan.md  # Project implementation plan
 ├── requirements.txt           # Python dependencies
-├── docker-compose.yml        # Docker Compose configuration
-├── setup-docker.sh           # Docker setup script
 ├── src/                      # Source code (to be implemented)
 ├── notebooks/                # Jupyter notebooks (to be implemented)
 ├── tests/                    # Test files (to be implemented)
