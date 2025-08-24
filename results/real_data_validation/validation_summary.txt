@@ -1,0 +1,7 @@
+REAL DATA MODEL VALIDATION SUMMARY
+==================================================
+
+Dataset: 124 test samples
+Best model: gradient_boosting_optimized
+Test accuracy: 0.968
+Test AUC: 0.998
