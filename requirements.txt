@@ -1,35 +1,66 @@
-# Core Data Processing & ML Stack
-pandas>=1.5.0
-numpy>=1.21.0
-scipy>=1.9.0
-scikit-learn>=1.1.0
+# Core Data Science Libraries
+numpy>=1.19.0
+pandas>=1.3.0
+scipy>=1.7.0
 
-# Deep Learning
-torch>=1.12.0
-torchvision>=0.13.0
-
-# Visualization
-matplotlib>=3.5.0
+# Machine Learning
+scikit-learn>=1.0.0
+matplotlib>=3.3.0
 seaborn>=0.11.0
 plotly>=5.0.0
 
-# Biomechanics (Phase 2+)
-ezc3d>=0.5.0
+# Signal Processing & Analysis
+PyWavelets>=1.1.0
 
-# Computer Vision (Phase 6+)
-ultralytics>=8.0.0
-opencv-python>=4.6.0
-mediapipe>=0.9.0
+# Deep Learning (Optional)
+torch>=1.9.0
+torchvision>=0.10.0
 
-# MCP Server (Phase 5+)
-mcp-server-stdio>=0.1.0
-openai>=0.27.0
-spacy>=3.4.0
-transformers>=4.20.0
+# Biomechanics-Specific
+# Note: Install ezc3d manually if needed for C3D file processing
+# pip install ezc3d
 
 # Development Tools
 jupyter>=1.0.0
 ipykernel>=6.0.0
-pytest>=7.0.0
-black>=22.0.0
-flake8>=5.0.0
+
+# Testing
+pytest>=6.0.0
+pytest-cov>=2.12.0
+
+# Code Quality
+black>=21.0.0
+flake8>=3.9.0
+isort>=5.9.0
+mypy>=0.910
+
+# Documentation
+sphinx>=4.0.0
+sphinx-rtd-theme>=0.5.0
+
+# Performance & Profiling
+memory-profiler>=0.58.0
+line-profiler>=3.3.0
+
+# Utilities
+tqdm>=4.60.0
+rich>=10.0.0
+psutil>=5.8.0
+
+# Data Handling
+pyarrow>=5.0.0
+fastparquet>=0.7.0
+
+# Model Interpretability
+shap>=0.41.0
+
+# Computer Vision (Future Use)
+opencv-python>=4.5.0
+mediapipe>=0.8.0
+
+# MCP Server (Future Use)
+# Note: These will be available when MCP phase is implemented
+# mcp-server-stdio
+# openai
+# spacy
+# transformers
