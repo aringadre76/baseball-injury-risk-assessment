@@ -596,6 +596,22 @@ class AdvancedInjuryRiskModel:
             pickle.dump(self.scaler, f)
         
         print(f"Advanced results saved to {output_path}")
+    
+    def save_model(self, output_path: str) -> None:
+        """Save the complete model instance for later use."""
+        output_file = Path(output_path)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(output_file, 'wb') as f:
+            pickle.dump(self, f)
+        print(f"Complete model saved to {output_file}")
+    
+    def load_model(cls, model_path: str) -> 'AdvancedInjuryRiskModel':
+        """Load a saved model instance."""
+        with open(model_path, 'rb') as f:
+            model = pickle.load(f)
+        print(f"Model loaded from {model_path}")
+        return model
 
 
 def run_advanced_model_analysis(data: pd.DataFrame, 

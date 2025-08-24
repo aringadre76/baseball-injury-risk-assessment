@@ -1,0 +1,26 @@
+ROBUST INJURY RISK MODEL REPORT
+==================================================
+
+Best Model: random_forest
+Feature Count: 58
+Training Status: Trained
+
+Performance Metrics:
+  CV AUC: 1.000 ± 0.001
+  Test AUC: 0.999
+  Test Accuracy: 0.984
+  Test Precision: 1.000
+  Test Recall: 0.946
+  Test F1: 0.972
+
+Top 10 Feature Importances:
+   1. shoulder_internal_rotation_moment: 0.3164
+   2. elbow_varus_moment: 0.2653
+   3. elbow_stress_composite: 0.1224
+   4. shoulder_stress_composite: 0.1192
+   5. elbow_pronation_fp: 0.0244
+   6. session_height_m: 0.0165
+   7. max_elbow_extension_velo: 0.0135
+   8. age_yrs: 0.0133
+   9. glove_shoulder_abduction_fp: 0.0124
+  10. max_rotation_hip_shoulder_separation: 0.0122

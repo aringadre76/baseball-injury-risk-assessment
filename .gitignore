@@ -43,6 +43,10 @@ venv.bak/
 *.swo
 *~
 
+# Cursor
+.cursor/
+.cursorrules
+
 # OS
 .DS_Store
 .DS_Store?
